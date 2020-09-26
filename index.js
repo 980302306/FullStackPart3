@@ -7,7 +7,7 @@ app.use(express.json())
 app.use(express.static('build'))
 
 const morgan=require('morgan')
-morgan.token('body',function(req,res){
+morgan.token('body',function(req){
     return JSON.stringify(req.body)
 })
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'))
